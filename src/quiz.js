@@ -1,7 +1,6 @@
 import React from 'react';
 
-export const Quiz = (props) => {
-    const { questions } = props;
+export const Quiz = ({questions}) => {
     return (
         <div className="quiz">
             <h1>Quiz</h1>
@@ -17,9 +16,9 @@ export const Quiz = (props) => {
 export const Question = ({data}) => {
     return (
         <li className="question quiz__question">
-            {data.text}
+            {data.get('text')}
             <ul class="question__answers">
-                {data.answers.map( (a, i) => (
+                {data.get('answers').map( (a, i) => (
                     <Answer data={a} key={i} />
                 ))}
             </ul>
