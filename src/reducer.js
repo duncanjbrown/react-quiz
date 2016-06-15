@@ -1,9 +1,12 @@
 export function reducer(state = [], action) {
   switch(action.type) {
     case 'ANSWER_QUESTION':
-      return state.map(q =>
-        question(q, action)
-      );
+      return {
+          ...state,
+          questions: state.questions.map(q =>
+            question(q, action)
+          )
+      }
     default:
       return state;
   }

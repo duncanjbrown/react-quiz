@@ -4,10 +4,10 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
 import { reducer } from './reducer';
-import questions from './data/questions'
+import quizData from './data/questions'
 import Quiz from './components/quiz';
 
-let store = createStore(reducer, questions);
+let store = createStore(reducer, quizData);
 
 ReactDOM.render(
     <Provider store={store}>

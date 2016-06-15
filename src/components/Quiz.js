@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Question from './Question';
 
-const Quiz = ({questions, answerQuestion}) => (
+const Quiz = ({ questions }) => (
     <div className="quiz">
         <h1>Quiz</h1>
         <ul>
@@ -11,10 +11,10 @@ const Quiz = ({questions, answerQuestion}) => (
             ))}
         </ul>
     </div>
-);
+)
 
 const mapStateToProps = (state) => {
-    return { questions: state };
+    return { questions: state.questions };
 }
 
 export default connect(mapStateToProps)(Quiz);

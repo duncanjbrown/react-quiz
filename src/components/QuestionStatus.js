@@ -1,7 +1,7 @@
 import React from 'react';
 
 const QuestionStatus = ({ correct }) => {
-    return <li>{correct ? "Correct!" : "Wrong!"}</li>
+    return <p>{correct ? "Correct!" : "Wrong!"}</p>
 }
 
 export default QuestionStatus;
