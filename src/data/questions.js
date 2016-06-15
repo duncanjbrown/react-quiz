@@ -2,7 +2,6 @@ const questions = [
     { 
         id: 0, 
         text: "In which year did the Franco-Prussian war end?",
-        correct: undefined,
         answers: [
             {
                 text: "1871",
@@ -21,7 +20,6 @@ const questions = [
     { 
         id: 1, 
         text: "How many planets in the Solar System?",
-        correct: undefined,
         answers: [
             {
                 text: "9",

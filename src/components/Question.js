@@ -5,13 +5,11 @@ import Answer from './Answer';
 import QuestionStatus from './QuestionStatus';
 
 const Question = ({ question, dispatchAnswer }) => {    
-    console.log(question);
     return (
-        <li className="question quiz__question"
-            style={{
+        <li className="question quiz__question">
+            <span style={{
                 textDecoration: question.answered ? 'line-through' : 'none'
-            }}>
-            {question.text}
+            }}>{question.text}</span>
             <ul class="question__answers">
                 {question.answers.map((a, i) => (
                     <Answer 
@@ -22,12 +20,7 @@ const Question = ({ question, dispatchAnswer }) => {
             </ul>
             {question.answered ? <QuestionStatus correct={question.correct} /> : null}
         </li>
-        
     );
-}
-
-const mapStateToProps = (state) => {
-    return state;
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -38,4 +31,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Question);
+export default connect(undefined, mapDispatchToProps)(Question);
