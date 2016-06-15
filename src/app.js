@@ -2,7 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { List, Map } from 'immutable';
 
-import { Quiz } from './quiz.js';
+import QuizApp from './containers/quiz';
+
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+
+import { reducer } from './reducer';
 
 const questions = List([
     Map({ 
@@ -43,9 +48,13 @@ const questions = List([
     })
 ]);
 
+let store = createStore(reducer, questions);
+
 
 
 ReactDOM.render(
-    <Quiz questions={questions} />,
+    <Provider store={store}>
+        <QuizApp />
+    </Provider>,
     document.getElementById('app')
 );
