@@ -1,9 +1,4 @@
-import { List, Map } from 'immutable';
-
-const emptyList = List([]);
-const emptyMap = Map([]);
-
-export function reducer(state = emptyList, action) {
+export function reducer(state = [], action) {
   switch(action.type) {
     case 'ANSWER_QUESTION':
       return state.map(q =>
@@ -21,7 +16,7 @@ export function question(state, action) {
         return state;
       }
 
-      let answer = state.answers[action.answerID]; 
+      let answer = state.answers[action.answerID];
 
       return {
         ...state,

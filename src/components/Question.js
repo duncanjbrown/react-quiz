@@ -1,20 +1,19 @@
 import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
+import answerQuestion from './../actions'
 import Answer from './Answer';
 
-const Question = ({question, answerQuestion}) => {
-    //const onAnswer = id => event => answerQuestion(id, question.id);
-    const onAnswer = (id) => () => console.log(id);
-
+const Question = ({ question, dispatchAnswer }) => {    
     return (
         <li className="question quiz__question"
             style={{
-                textDecoration: question.get('answered') ? 'line-through' : 'none'
+                textDecoration: question.answered ? 'line-through' : 'none'
             }}>
-            {question.get('text')}
+            {question.text}
             <ul class="question__answers">
-                {question.get('answers').map((a, i) => (
-                    <Answer
-                        onClick={onAnswer} 
+                {question.answers.map((a, i) => (
+                    <Answer 
+                        handleClick={() => dispatchAnswer(question.id, i)}
                         text={a.text} 
                         key={i} />
                 ))}
@@ -23,4 +22,16 @@ const Question = ({question, answerQuestion}) => {
     );
 }
 
-export default Question;
+const mapStateToProps = (state) => {
+    return state;
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        dispatchAnswer: (questionID, answerID) => {
+            dispatch(answerQuestion(questionID, answerID));
+        } 
+    }   
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Question);

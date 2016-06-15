@@ -1,9 +1,9 @@
-export function answerQuestion(questionID, answerID) {
+const answerQuestion = (questionID, answerID) => {
     return {
         type: 'ANSWER_QUESTION',
-        payload: {
-            questionID,
-            answerID
-        }
+        questionID,
+        answerID
     }
 }
+
+export default answerQuestion;

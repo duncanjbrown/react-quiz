@@ -1,16 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { List, Map } from 'immutable';
 
-import QuizApp from './containers/quiz';
+import Quiz from './components/quiz';
 
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
 import { reducer } from './reducer';
 
-const questions = List([
-    Map({ 
+const questions = [
+    { 
         id: 0, 
         text: "In which year did the Franco-Prussian war end?",
         answers: [
@@ -27,9 +26,9 @@ const questions = List([
                 correct: false 
             },
         ]
-    }),
-    Map({ 
-        id: 0, 
+    },
+    { 
+        id: 1, 
         text: "How many planets in the Solar System?",
         answers: [
             {
@@ -45,16 +44,14 @@ const questions = List([
                 correct: false 
             },
         ]
-    })
-]);
+    }
+];
 
 let store = createStore(reducer, questions);
 
-
-
 ReactDOM.render(
     <Provider store={store}>
-        <QuizApp />
+        <Quiz />
     </Provider>,
     document.getElementById('app')
 );
