@@ -1,14 +1,16 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-const Flash = ({ status }) => (
-    <div className="flash {status}">
-        {status}
-    </div>
-)
-
-const mapStateToProps = (state) => {
-    return { questions: state.questions };
+const Flash = ({ flash }) => {
+    return (
+        <div className="flash {flash.status}">
+            {flash.text}
+        </div>
+    )
 }
 
-export default connect(mapStateToProps)(Quiz);
+const mapStateToProps = (state) => {
+    return { flash: state.flash };
+}
+
+export default connect(mapStateToProps)(Flash);

@@ -1,5 +1,5 @@
 const quizData = {
-    lastQuestionAnswered: undefined,
+    flash: false,
     questions: [
         { 
             id: 0, 

@@ -1,9 +1,11 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Question from './Question';
+import Flash from './Flash';
 
-const Quiz = ({ questions }) => (
+const Quiz = ({ questions, flash }) => (
     <div className="quiz">
+        {flash ? <Flash /> : null}
         <h1>Quiz</h1>
         <ul>
             {questions.map((question, i) => (
@@ -14,7 +16,7 @@ const Quiz = ({ questions }) => (
 )
 
 const mapStateToProps = (state) => {
-    return { questions: state.questions };
+    return { questions: state.questions, flash: state.flash };
 }
 
 export default connect(mapStateToProps)(Quiz);

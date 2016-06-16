@@ -1,14 +1,15 @@
-export const answerQuestion = (questionID, answerID) => {
-    return {
+export const answerQuestion = (questionID, answerID) => (dispatch, getState) => {
+    dispatch({
         type: 'ANSWER_QUESTION',
         questionID,
         answerID
-    }
-}
+    });
 
-export const questionAnswered = (questionID) => {
-    return {
+    const state = getState();
+    const answeredQuestion = state.questions.find(q => q.id == questionID);
+
+    dispatch({
         type: 'QUESTION_ANSWERED',
-        questionID
-    }
+        correct: answeredQuestion.correct
+    });
 }
