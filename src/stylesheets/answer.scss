@@ -1,20 +1,29 @@
+@import "variables";
+
 .answer {
     width: 300px;
 
     padding: 10px;
-    border: 1px solid #e1e1e1;    
+    border: 1px solid $grey;    
     border-radius: 5px;
 
     margin-bottom: 20px;
 
     cursor: pointer;
 
-    &.chosen {
-        &.correct {
-            background-color: green;
+    &.correct {
+        background-color: $grey;
+        &:before {
+            content: "✓ ";
         }
-        &.incorrect {
-            background-color: red;
+        &.chosen {
+            background-color: $green;
+        }
+    }
+    &.incorrect {
+        background-color: $red;
+        &:before {
+            content: "✗ ";
         }
     }
 }
