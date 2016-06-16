@@ -15,7 +15,8 @@ const quizData = {
                     text: "1834",
                 }
             ],
-            correctAnswer: 0
+            correctAnswer: 0,
+            selectedAnswer: null
         },
         { 
             id: 1, 
@@ -31,7 +32,8 @@ const quizData = {
                     text: "7" 
                 },
             ],
-            correctAnswer: 0
+            correctAnswer: 0,
+            selectedAnswer: null
         }
     ]
 }

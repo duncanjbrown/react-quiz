@@ -10,6 +10,6 @@ export const answerQuestion = (questionID, answerID) => (dispatch, getState) => 
 
     dispatch({
         type: 'QUESTION_ANSWERED',
-        correct: answeredQuestion.correct
+        correct: answeredQuestion.selectedAnswer == answeredQuestion.correctAnswer
     });
 }

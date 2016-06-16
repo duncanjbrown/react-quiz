@@ -29,17 +29,14 @@ export function question(question, action) {
   switch(action.type) {
     case 'ANSWER_QUESTION':
       
-      if(question.answered) {
+      if(question.selectedAnswer) {
         return question;
       }
 
-      const correct = question.correctAnswer == action.answerID;
-
       return {
         ...question,
-        answered: true,
-        correct: correct
-      };
+        selectedAnswer: action.answerID
+      }
     default:
       return question;
   }

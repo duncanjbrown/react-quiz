@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Question from './Question';
 import Flash from './Flash';
+require('../stylesheets/base.scss');
 
 const Quiz = ({ questions, flash }) => (
     <div className="quiz">

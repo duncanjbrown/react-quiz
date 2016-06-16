@@ -2,23 +2,22 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from './../actions'
 import Answer from './Answer';
-import QuestionStatus from './QuestionStatus';
+require('../stylesheets/question.scss');
 
 const Question = ({ question, dispatchAnswer }) => {    
     return (
         <li className="question quiz__question">
-            <span style={{
-                textDecoration: question.answered ? 'line-through' : 'none'
-            }}>{question.text}</span>
+            <p className="question__question">{question.text}</p>
             <ul class="question__answers">
                 {question.answers.map((a, i) => (
                     <Answer 
                         handleClick={() => dispatchAnswer(question.id, i)}
                         text={a.text} 
+                        wasChosen={question.selectedAnswer == i}
+                        wasCorrect={question.correctAnswer == i}
                         key={i} />
                 ))}
             </ul>
-            {question.answered ? <QuestionStatus correct={question.correct} /> : null}
         </li>
     );
 }
