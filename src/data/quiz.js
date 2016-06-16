@@ -33,6 +33,23 @@ const quizData = {
             ],
             correctAnswer: 0,
             selectedAnswer: null
+        },
+        { 
+            id: 2, 
+            text: "How many states in the EU?",
+            answers: [
+                {
+                    text: "27" 
+                },
+                {
+                    text: "28"
+                },
+                {
+                    text: "29" 
+                },
+            ],
+            correctAnswer: 1,
+            selectedAnswer: null
         }
     ]
 }

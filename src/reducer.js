@@ -4,14 +4,14 @@ export function reducer(state = [], action) {
       return {
         ...state,
         flash: {
-          text: action.correct ? "Correct!" : "Incorrect!",
+          text: action.correct ? "✓ Correct!" : "✗ Incorrect!",
           status: action.correct ? "correct" : "incorrect"
         }
       }
     case 'CLOSE_FLASH':
       return {
         ...state,
-        flash: Object.assign({}, state.flash, {status: "fade"})
+        flash: Object.assign({}, state.flash, {status: state.flash.status + " fade"})
       }
     case 'ANSWER_QUESTION':
       return {
@@ -34,12 +34,13 @@ export function question(question, action) {
   switch(action.type) {
     case 'ANSWER_QUESTION':
       
-      if(question.selectedAnswer) {
+      if(question.answered) {
         return question;
       }
 
       return {
         ...question,
+        answered: true,
         selectedAnswer: action.answerID
       }
     default:

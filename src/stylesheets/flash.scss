@@ -1,8 +1,11 @@
+$fade_time: 0.4s;
+
 .flash {
     position: absolute;
     height: 100vh;
     width: 100vw;
-    transition: opacity 1s linear;
+    opacity: 1;
+    transition: opacity $fade_time linear;
 
     &.incorrect {
         background-color: rgba(255,0,0,0.5);
@@ -10,9 +13,11 @@
     &.correct {
         background-color: rgba(0,255,0,0.5);
     }
+
     &.fade {
+        visibility: hidden;
         opacity: 0;
-        transition: visibility 0s 1s, opacity 1s linear;
+        transition: visibility 0s $fade_time, opacity $fade_time linear;
     }
     
     h1 {
