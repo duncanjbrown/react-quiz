@@ -1,16 +1,20 @@
 import React from 'react';
 require('../stylesheets/answer.scss');
 
-const Answer = ({ text, handleClick, wasChosen, wasCorrect }) => {
+const Answer = ({ text, handleClick, questionWasAnswered, wasChosen, wasCorrect }) => {
     
-    let className = "answer";
-    if(wasChosen && wasCorrect) {
-        className += " chosen correct";
-    } else if(wasChosen && !wasCorrect) {
-        className += " chosen incorrect";
+    let classes = ["answer"];
+    if(questionWasAnswered) {
+        if(wasChosen) {
+            classes.push("chosen");
+        } if(wasCorrect) {
+            classes.push("correct");
+        } if(wasChosen && !wasCorrect) {
+            classes.push("incorrect");
+        }
     }
 
-    return <li className={className} onClick={handleClick}>{text}</li>
+    return <li className={classes.join(" ")} onClick={handleClick}>{text}</li>
 }
 
 export default Answer;

@@ -14,6 +14,7 @@ const quizData = {
                     text: "1834",
                 }
             ],
+            explanation: "France would not get Alsace and Lorraine back until after WWI",
             correctAnswer: 0,
             selectedAnswer: null
         },
@@ -32,6 +33,7 @@ const quizData = {
                 },
             ],
             correctAnswer: 0,
+            explanation: "In ascending order of distance from the sun: Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune, Pluto",
             selectedAnswer: null
         },
         { 
@@ -48,6 +50,7 @@ const quizData = {
                     text: "29" 
                 },
             ],
+            explanation: "More states will join soon",
             correctAnswer: 1,
             selectedAnswer: null
         }

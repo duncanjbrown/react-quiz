@@ -5,16 +5,16 @@ import Score from './Score';
 import Flash from './Flash';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 require('../stylesheets/base.scss');
-require('../stylesheets/quiz.scss');
+require('../stylesheets/transition.scss');
 
-const Quiz = ({ questions, flash, completed }) => (
+const Quiz = ({ questions, questionCount, flash, completed }) => (
     <div className="quiz">
         {flash ? <Flash /> : null}
         <h1>Quiz</h1>
         <ul>
             <ReactCSSTransitionGroup transitionName="example" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
                 {questions.map((question, i) => (
-                    <Question question={question} key={i}  />
+                    <Question question={question} questionNumber={i+1} questionCount={questionCount} key={i}  />
                 ))}
             </ReactCSSTransitionGroup>
         </ul>
@@ -28,7 +28,7 @@ const mapStateToProps = (state) => {
     if(nextQuestion) {
         questions = questions.concat(nextQuestion); 
     } 
-    return { questions: questions, flash: state.flash, completed: !nextQuestion };
+    return { questions: questions, questionCount: state.questions.length, flash: state.flash, completed: !nextQuestion };
 }
 
 export default connect(mapStateToProps)(Quiz);
