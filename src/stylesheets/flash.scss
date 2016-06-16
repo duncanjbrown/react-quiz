@@ -1,0 +1,23 @@
+.flash {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    transition: opacity 1s linear;
+
+    &.incorrect {
+        background-color: rgba(255,0,0,0.5);
+    }
+    &.correct {
+        background-color: rgba(0,255,0,0.5);
+    }
+    &.fade {
+        opacity: 0;
+        transition: visibility 0s 1s, opacity 1s linear;
+    }
+    
+    h1 {
+        text-align: center;
+        margin-top: 50vh;
+        color: white;
+    }
+}

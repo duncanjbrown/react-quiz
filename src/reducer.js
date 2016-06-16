@@ -1,12 +1,17 @@
 export function reducer(state = [], action) {
   switch(action.type) {
-    case 'QUESTION_ANSWERED':
+    case 'FLASH':
       return {
         ...state,
         flash: {
           text: action.correct ? "Correct!" : "Incorrect!",
           status: action.correct ? "correct" : "incorrect"
         }
+      }
+    case 'CLOSE_FLASH':
+      return {
+        ...state,
+        flash: Object.assign({}, state.flash, {status: "fade"})
       }
     case 'ANSWER_QUESTION':
       return {

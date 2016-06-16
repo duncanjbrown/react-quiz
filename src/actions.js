@@ -9,7 +9,11 @@ export const answerQuestion = (questionID, answerID) => (dispatch, getState) => 
     const answeredQuestion = state.questions.find(q => q.id == questionID);
 
     dispatch({
-        type: 'QUESTION_ANSWERED',
+        type: 'FLASH',
         correct: answeredQuestion.selectedAnswer == answeredQuestion.correctAnswer
     });
+
+    setTimeout(() => {
+        dispatch({type: 'CLOSE_FLASH'})
+    }, 500);
 }

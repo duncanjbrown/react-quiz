@@ -1,5 +1,4 @@
 const quizData = {
-    flash: false,
     questions: [
         { 
             id: 0, 
