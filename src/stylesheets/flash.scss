@@ -2,9 +2,14 @@
 $fade_time: 0.3s;
 
 .flash {
-    position: absolute;
-    height: 100vh;
-    width: 100vw;
+    position: fixed;
+    top: 0; 
+    left: 0;
+    display: flex;
+    justify-content: center; /* horizontal centering */
+    align-items: center;
+    height: 102vh;
+    width: 100%;
     opacity: 0.6;
     transition: opacity $fade_time linear;
 
@@ -23,7 +28,6 @@ $fade_time: 0.3s;
     
     h1 {
         text-align: center;
-        margin-top: 60vh;
         color: white;
     }
 }

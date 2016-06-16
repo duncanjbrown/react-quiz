@@ -1,8 +1,6 @@
 @import "variables";
 
 .answer {
-    width: 300px;
-
     padding: 10px;
     border: 1px solid $grey;    
     border-radius: 5px;
@@ -17,10 +15,16 @@
             content: "✓ ";
         }
         &.chosen {
+            color: darken($green, 60%);
+            font-weight: bold;
+            border-color: darken($green, 5%);
             background-color: $green;
         }
     }
     &.incorrect {
+        color: darken($red, 60%);
+        font-weight: bold;
+        border-color: darken($red, 5%);
         background-color: $red;
         &:before {
             content: "✗ ";
