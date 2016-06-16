@@ -14,7 +14,7 @@ const Question = ({ question, questionNumber, questionCount, dispatchAnswer }) =
                 {question.answers.map((a, i) => (
                     <Answer 
                         handleClick={() => dispatchAnswer(question.id, i)}
-                        text={a.text} 
+                        text={a} 
                         questionWasAnswered={question.answered}
                         wasChosen={question.selectedAnswer == i}
                         wasCorrect={question.correctAnswer == i}
@@ -24,7 +24,6 @@ const Question = ({ question, questionNumber, questionCount, dispatchAnswer }) =
             <ReactCSSTransitionGroup transitionName="example" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
                 {question.answered ? <p className="question__explanation">{question.explanation}</p> : null}
             </ReactCSSTransitionGroup>
-
         </li>
     );
 }
