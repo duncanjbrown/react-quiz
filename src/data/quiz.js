@@ -1,5 +1,5 @@
 const quizData = {
-    state: "new",
+    lastQuestionAnswered: undefined,
     questions: [
         { 
             id: 0, 
@@ -7,35 +7,31 @@ const quizData = {
             answers: [
                 {
                     text: "1871",
-                    correct: true 
                 },
                 {
                     text: "1901",
-                    correct: false
                 },
                 {
                     text: "1834",
-                    correct: false 
-                },
-            ]
+                }
+            ],
+            correctAnswer: 0
         },
         { 
             id: 1, 
             text: "How many planets in the Solar System?",
             answers: [
                 {
-                    text: "9",
-                    correct: true 
+                    text: "9" 
                 },
                 {
-                    text: "10",
-                    correct: false
+                    text: "10"
                 },
                 {
-                    text: "7",
-                    correct: false 
+                    text: "7" 
                 },
-            ]
+            ],
+            correctAnswer: 0
         }
     ]
 }

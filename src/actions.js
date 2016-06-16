@@ -1,4 +1,4 @@
-const answerQuestion = (questionID, answerID) => {
+export const answerQuestion = (questionID, answerID) => {
     return {
         type: 'ANSWER_QUESTION',
         questionID,
@@ -6,4 +6,9 @@ const answerQuestion = (questionID, answerID) => {
     }
 }
 
-export default answerQuestion;
+export const questionAnswered = (questionID) => {
+    return {
+        type: 'QUESTION_ANSWERED',
+        questionID
+    }
+}

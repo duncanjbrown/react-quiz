@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import answerQuestion from './../actions'
+import * as actions from './../actions'
 import Answer from './Answer';
 import QuestionStatus from './QuestionStatus';
 
@@ -26,7 +26,7 @@ const Question = ({ question, dispatchAnswer }) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         dispatchAnswer: (questionID, answerID) => {
-            dispatch(answerQuestion(questionID, answerID));
+            dispatch(actions.answerQuestion(questionID, answerID));
         }
     }
 }

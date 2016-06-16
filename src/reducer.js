@@ -10,25 +10,27 @@ export function reducer(state = [], action) {
     default:
       return state;
   }
-} 
+}
 
 export function question(question, action) {
+
+  if(action.questionID !== question.id) {
+    return question;
+  }
+
   switch(action.type) {
     case 'ANSWER_QUESTION':
-      if(action.questionID !== question.id) {
-        return question;
-      }
-
+      
       if(question.answered) {
         return question;
       }
 
-      let answer = question.answers[action.answerID];
+      const correct = question.correctAnswer == action.answerID;
 
       return {
         ...question,
         answered: true,
-        correct: answer.correct
+        correct: correct
       };
     default:
       return question;
