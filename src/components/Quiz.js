@@ -12,9 +12,15 @@ const Quiz = ({ questions, questionCount, flash, completed }) => (
         {flash ? <Flash /> : null}
         <h1>Quiz</h1>
         <ul>
-            <ReactCSSTransitionGroup transitionName="example" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
+            <ReactCSSTransitionGroup 
+                transitionName="example" 
+                transitionEnterTimeout={500} 
+                transitionLeaveTimeout={300}>
                 {questions.map((question, i) => (
-                    <Question question={question} questionNumber={i+1} questionCount={questionCount} key={i}  />
+                    <Question   question={question} 
+                                questionNumber={i+1} 
+                                questionCount={questionCount} 
+                                key={i}  />
                 ))}
             </ReactCSSTransitionGroup>
         </ul>
